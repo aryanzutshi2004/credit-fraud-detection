@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from joblib import load
+import joblib
 
 # Optional: set page config
 st.set_page_config(page_title="Credit Fraud Detector", layout="wide")
@@ -69,7 +69,7 @@ user_dict = {
 df = pd.DataFrame([user_dict])
 
 # Loading model, scaler, columns to scale, and model features
-artifacts = load("./artifacts/final_dict.joblib")
+artifacts = joblib.load("./artifacts/final_dict.joblib")
 cols_to_scale = artifacts["columns_to_scale"]
 scaler = artifacts["scaler"]
 model = artifacts["model"]
